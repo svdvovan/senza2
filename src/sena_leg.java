@@ -25,12 +25,26 @@ public class sena_leg {
 
         int y = 0;
         for (Element link1 : links1) {
+            System.out.println();
             String idNumber = id_product.get(y).attr("data-param-id");
             String Url = addressUrl.get(y).attr("abs:href");
             Document doc2 = Jsoup.connect(Url).get();
-            String Razm = doc2.select("meta[itemprop=sku]").attr("content");
-            System.out.println( Url + " ; " + Names.text() + " ; " +idNumber+ " ; " + link1.text() + " ; " + Razm );
+//            String razmeres = doc2.select("meta[itemprop=sku]").attr("content");
+//            System.out.println( Url + " ; " + Names.text() + " ; " +idNumber+ " ; " + link1.text() + " ; " + razmeres );
 
+            Elements razmeres = doc2.getElementsByClass("bx_size");
+
+            System.out.print( Url + " ; " + Names.text() + " ; " +idNumber+ " ; " + link1.text() );
+            switch (razmeres.text()){
+                case "XS-SM-L":
+                    System.out.print("; XS ; 10 ; S ; 10 ; M ; 10 ; L ; 10 ;");
+                    break;
+                case "XS-S":
+                    System.out.print("; XS ; 10 ; S ; 10 ; M ; 0 ; L ; 0 ;");
+                    break;
+                case "M-L":
+                    System.out.print("; XS ; 0 ; S ; 0 ; M ; 10 ; L ; 10 ;");
+            }
 
 
 
