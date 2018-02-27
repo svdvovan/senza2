@@ -34,6 +34,9 @@ public class sena_leg {
             String Url = addressUrl.get(y).attr("abs:href");
             System.out.println( Url + " ; " +idNumber+ " ; " + link1.text() + " ; " );
             Document doc2 = Jsoup.connect(Url).get();
+
+            String Razm = doc2.select("meta[itemprop=sku]").attr("content");
+            System.out.println(Razm);
             y++;
         }
 
