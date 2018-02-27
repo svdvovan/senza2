@@ -17,7 +17,7 @@ public class sena_leg {
         Elements lHref = doc1.getElementsByClass("item-title");
         Elements links1 = doc1.getElementsByClass("dark_link");
         Elements addressUrl = lHref.select("a[href]");
-        Elements prices = doc1.getElementsByClass("current_price got_bold pink");
+//        Elements prices = doc1.getElementsByClass("current_price got_bold pink");
         Elements Names = doc1.getElementsByClass("page-top-main");
         Elements id_product = doc1.getElementsByClass("fast_view_block");
 
@@ -33,20 +33,22 @@ public class sena_leg {
 //            System.out.println( Url + " ; " + Names.text() + " ; " +idNumber+ " ; " + link1.text() + " ; " + razmeres );
 
             Elements razmeres = doc2.getElementsByClass("bx_size");
+            Elements Price = doc2.getElementsByClass("price discount");
+            Elements Img = doc2.getElementsByClass("offers_img wof");
 
-            System.out.print( Url + " ; " + Names.text() + " ; " +idNumber+ " ; " + link1.text() );
+            System.out.print( Url + " ; " + Names.text() + " ; " +idNumber+ " ; " + link1.text() + " ; " + Price.text() );
             switch (razmeres.text()){
                 case "XS-SM-L":
-                    System.out.print("; XS ; 10 ; S ; 10 ; M ; 10 ; L ; 10 ;");
+                    System.out.print(" ; XS ; 10 ; S ; 10 ; M ; 10 ; L ; 10 ;");
                     break;
                 case "XS-S":
-                    System.out.print("; XS ; 10 ; S ; 10 ; M ; 0 ; L ; 0 ;");
+                    System.out.print(" ; XS ; 10 ; S ; 10 ; M ; 0 ; L ; 0 ;");
                     break;
                 case "M-L":
-                    System.out.print("; XS ; 0 ; S ; 0 ; M ; 10 ; L ; 10 ;");
+                    System.out.print(" ; XS ; 0 ; S ; 0 ; M ; 10 ; L ; 10 ;");
             }
 
-
+            System.out.print(Img.select("a[href]").attr("abs:href"));
 
             y++;
         }
