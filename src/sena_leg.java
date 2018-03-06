@@ -36,9 +36,9 @@ public class sena_leg {
             Elements Price = doc2.getElementsByClass("price discount");
             Elements Img = doc2.getElementsByClass("offers_img wof");
             Elements Nalichie = doc2.getElementsByClass("item-stock");
-
+      //      String Opisanie = doc2.select("meta[property=og:description]").attr("content");
       //      System.out.print( Url + " ; " + Names.text() + " ; " + "sr-"  +idNumber+ " ; " + link1.text() + " ; " + Price.text() );
-            System.out.print( Nalichie.text() + " ; " +  Names.text() + " ; "  +idNumber+ " ; " + link1.text() + " ; " + Price.text() );
+            System.out.print( Nalichie.text() + " ; " +  Names.text() + " ; "  +idNumber+ " ; " + link1.text() + " ; " + Price.text()+ " ; Biflex " );
             switch (razmeres.text()){
                 case "XS-SM-L":
                     System.out.print(" ; XS ; 10 ; S ; 10 ; M ; 10 ; L ; 10 ;");
@@ -50,7 +50,8 @@ public class sena_leg {
                     System.out.print(" ; XS ; 0 ; S ; 0 ; M ; 10 ; L ; 10 ;");
             }
 
-            System.out.print(Img.select("a[href]").attr("abs:href"));
+            System.out.print( Img.select("a[href]").attr("abs:href"));
+    //        System.out.print(Opisanie);
 
             y++;
         }
