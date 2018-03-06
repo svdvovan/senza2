@@ -35,8 +35,10 @@ public class sena_leg {
             Elements razmeres = doc2.getElementsByClass("bx_size");
             Elements Price = doc2.getElementsByClass("price discount");
             Elements Img = doc2.getElementsByClass("offers_img wof");
+            Elements Nalichie = doc2.getElementsByClass("item-stock");
 
-            System.out.print( Url + " ; " + Names.text() + " ; " +idNumber+ " ; " + link1.text() + " ; " + Price.text() );
+      //      System.out.print( Url + " ; " + Names.text() + " ; " + "sr-"  +idNumber+ " ; " + link1.text() + " ; " + Price.text() );
+            System.out.print( Nalichie.text() + " ; " +  Names.text() + " ; "  +idNumber+ " ; " + link1.text() + " ; " + Price.text() );
             switch (razmeres.text()){
                 case "XS-SM-L":
                     System.out.print(" ; XS ; 10 ; S ; 10 ; M ; 10 ; L ; 10 ;");
